@@ -1,11 +1,8 @@
 import { galleryItems } from "./gallery-items.js";
-// Change code below this line
 
-console.log(galleryItems);
+const lightbox = document.querySelector(`.gallery`);
 
-const container = document.querySelector(`.gallery`);
-
-function createMarcup(arr) {
+function createMarcupLightbox(arr) {
   return arr
     .map(
       ({ preview, original, description }) =>
@@ -19,20 +16,9 @@ function createMarcup(arr) {
     .join(``);
 }
 
-container.insertAdjacentHTML(`beforeend`, createMarcup(galleryItems));
-container.addEventListener(`click`, handlerImgClick);
+lightbox.insertAdjacentHTML(`beforeend`, createMarcupLightbox(galleryItems));
 
-function handlerImgClick(evt) {
-  evt.preventDefault();
-
-  if (evt.target.nodeName !== `IMG`) {
-    return;
-  }
-
-  const instance = new SimpleLightbox(`.gallery a`, {
-    captionsData: "alt",
-    captionDelay: 250,
-  });
-
-  instance.show();
-}
+let instance = new SimpleLightbox(`.gallery a`, {
+  captionsData: "alt",
+  captionDelay: 250,
+});
