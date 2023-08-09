@@ -37,10 +37,10 @@ function handlerImgClick(evt) {
   instance.show();
 }
 
-// document.addEventListener("keydown", handlerKey);
+document.addEventListener("keydown", handlerKey);
 
-// function handlerKey(evt) {
-//   if (evt.code === "Escape" && instance) {
-//     instance.close();
-//   }
-// }
+function handlerKey(evt) {
+  if (evt.code === "Escape" && instance) {
+    instance.close();
+  }
+}
