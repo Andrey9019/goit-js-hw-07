@@ -29,6 +29,10 @@ function handlerImgClick(evt) {
   evt.preventDefault();
   const bigPicture = evt.target.dataset.source;
 
+  if (evt.target === evt.currentTarget) {
+    return;
+  }
+
   if (instance) {
     instance.close();
   }
